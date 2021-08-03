@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Kumbh Sans', sans-serif;
+}
+
+body {
+  background: -webkit-gradient(linear, left top, left bottom, from(#09203f), color-stop(#9dc5c3), to(#537895));
+  background: linear-gradient(#09203f, #9dc5c3, #537895);
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.login-box {
+  position: relative;
+  height: 420px;
+  width: 700px;
+  padding: 20px 08px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+  gap: 20px;
+}
+
+.login-box .uptop {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 380px auto;
+      grid-template-columns: 380px auto;
+}
+
+.login-box .uptop .hero > a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.login-box .uptop .hero > a > img {
+  width: 160px;
+  height: 160px;
+}
+
+.login-box .uptop .hero h1 {
+  text-align: center;
+}
+
+.login-box .uptop .info {
+  padding: 26px;
+  text-align: justify;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  font-size: 14px;
+}
+
+.login-box > .login-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 15px;
+}
+
+.login-box > .login-container form > .cred {
+  position: relative;
+  display: -ms-grid;
+  display: grid;
+  gap: 16px;
+}
+
+.login-box > .login-container form > .cred #login {
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  margin: 50px auto;
+  height: 26px;
+  width: 56px;
+}
+
+.login-box .footer > .footer-info {
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+/*# sourceMappingURL=main.css.map */
