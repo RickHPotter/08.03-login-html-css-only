@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+body 
+{ 
+    background: linear-gradient(to right, white, rgb(224, 223, 219)); 
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 20px 0;
+}
+
+
+.logo-div > img
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 220px;
+    max-height: 192px;
+}
+
+.login-wrapper
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    position: absolute;
+    width:100%;
+    margin: 20px 0;
+
+    top: 26vh;
+    max-width:780px;
+    min-height:420px;
+   
+    background: #D0EFFF;
+    box-shadow: -5px -5px 06px rgba(40, 50, 194, 0.7);
+}
+
+
+.login-wrapper > h1
+{
+    font-family: 'Share Tech';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 26px;
+    line-height: 29px;
+    text-align: center;
+
+    padding-bottom: 60px;
+}
+
+input[type=text]
+{
+    background-image: url('../assets/user.png');
+}
+
+input[type=password]
+{
+    background-image: url('../assets/padlock.png');
+}
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 30px;
+    box-sizing: border-box;
+    outline: none;
+    padding: 12px 12px 12px 60px;
+
+    background-size: 33px 33px;
+    background-position-y: center;
+    background-position-x: 3%;
+    background-repeat: no-repeat;
+
+    box-shadow: inset 2px 0px 6px #2832C2;
+}
+
+.lembrar-usuario
+{
+    font-family: 'Nunito';
+    font-size: 16px;
+    padding: 16px 0;
+}
+
+
+input::placeholder
+{
+    font-family: 'Nunito';
+    font-size: 18px;
+    text-align: right; 
+    font-weight: 400;
+    opacity: 0.75;
+}
+
+button
+{
+    background-color: #63d471;
+    background-image: linear-gradient(60deg, #63d471 15%, white 65%);
+    box-shadow: 0 3px 5px 06px lightblue;
+
+    font-family: 'Nunito';
+    font-weight: 400;
+    font-size: 22px;
+    color: black;
+
+    border: none;
+    border-radius: 3px;
+    height: 48px;
+    margin-top: 10px;
+    padding: 10px 30px;
+
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.footer
+{
+    position: relative;
+    width: 780px;
+    height: 130px;
+    padding-top: 06px;
+    top: 60vh;
+
+    background: #D0EFFF;
+    box-shadow: 05px 05px 06px rgba(40, 50, 194, 0.7);
+
+}
+    
+.footer > p
+{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: center;
+    
+    color: #000000;
+}
+
+.footer > p > span
+{
+    font-weight: bolder;
+}
