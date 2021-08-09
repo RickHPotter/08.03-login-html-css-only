@@ -1,0 +1,218 @@
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+
+import style from './login.module.css';
+
+import logo from './logo.png'
+
+async function loginUser(credentials) {
+	return fetch('http://localhost:8060/login', {
+		method: 'POST',
+		headers: { 'Content-Type': 'application/json' },
+		body: JSON.stringify(credentials)
+	})
+		.then(data => data.json())
+}
+
+export default function Login( { setToken } ) {
+	const [username, setUserName] = useState();
+	const [password, setPassword] = useState();
+
+	const handleSubmit = async e => {
+		e.preventDefault();
+		const token = await loginUser({
+			username, password
+		});
+		setToken(token);
+	}
+
+	return (
+		<section>
+			<div className= { style.logoDiv } >
+				<img src= { logo } />
+			</div>
+			<div className= { style.loginWrapper } >
+				<h1 className= { style.loginWrapper.h1 } >COLOSSO</h1>
+
+				<form className= { style.formContainer } onSubmit= { handleSubmit } >
+					<label htmlFor="uname" />
+					<input className= { style.inputText } type="text" placeholder="usuário" name="uname" required 
+							onChange= { e => setUserName(e.target.value) } />
+
+					<label htmlFor="psw" />
+					<input className= { style.inputPass }  type="password" placeholder="senha" name="psw" required
+							onChange= { e => setPassword(e.target.value) } />
+					
+					<div>
+						<input className= { style.inputCheck } type="checkbox" name="lembrar"/>	Lembrar Usuário
+                	</div>
+					
+					<div>
+						<button className= { style.loginButton} type="submit">Acessar</button>
+					</div>
+				</form>
+			</div>
+
+			<div className= { style.footer } >
+				<p className= { style.footer.p } > <span className= { style.footer.span } >AVISO</span> <br />
+				Este sistema é protegido por leis de direitos autorais. 
+				A reprodução ou distribuição não autorizada deste sistema ou de 
+				qualquer parte dele resultará em serveras punições civis e 
+				criminais, e os infratores serão punidos sob a máxima extensão 
+				possível dentro da lei.
+				</p>
+			</div>
+		</section>
+	)
+}
+
+Login.propTypes = { setToken: PropTypes.func.isRequired }
+
+
+
+----------------------------------------------------------
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+.logoDiv > img
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 180px;
+    max-height: 180px;
+}
+
+.loginWrapper
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+	
+	/*
+	margin-top: 10vh;
+    top: 16vh;
+	*/
+	
+    position: relative;
+    width:100%;
+    max-width:780px;
+    min-height:420px;
+   
+    background: #D0EFFF;
+    box-shadow: -5px -5px 06px rgba(40, 50, 194, 0.7);
+}
+
+
+.loginWrapper > h1
+{
+    font-family: 'Share Tech';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 30px;
+    text-align: center;
+
+    padding-bottom: 36px;
+}
+
+.inputText
+{
+    background-image: url('../../assets/user.png');
+}
+
+.inputPass
+{
+    background-image: url('../../assets/padlock.png');
+}
+
+.inputText, .inputPass 
+{
+    width: 100%;
+    padding: 12px 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 30px;
+    box-sizing: border-box;
+    outline: none;
+    padding: 12px 12px 12px 60px;
+
+    background-size: 33px 33px;
+    background-position-y: center;
+    background-position-x: 3%;
+    background-repeat: no-repeat;
+
+    box-shadow: inset 2px 0px 6px #2832C2;
+}
+
+
+.inputCheck /* it just refuses to work... idk why */
+{
+    font-family: 'Nunito';
+    font-size: 16px;
+    padding: 46px 0;
+}
+
+.inputText::placeholder,
+.inputPass::placeholder
+{
+    font-family: 'Nunito';
+    font-size: 18px;
+    text-align: right; 
+    font-weight: 400;
+    opacity: 0.75;
+}
+
+.loginButton
+{
+    background-color: #63d471;
+    background-image: linear-gradient(125deg, #D0EFFF 00%, #235069 15%, #D0EFFF 85%);
+    box-shadow: 0 3px 5px 06px lightblue;
+
+    font-family: 'Nunito';
+    font-weight: 400;
+    font-size: 22px;
+    color: black;
+
+    border: none;
+    border-radius: 3px;
+    height: 48px;
+    margin-top: 30px;
+    padding: 10px 30px;
+
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.footer
+{
+    position: relative;
+    width: 780px;
+    height: 130px;
+    
+    background: #D0EFFF;
+    box-shadow: 05px 05px 06px rgba(40, 50, 194, 0.7);
+}
+    
+.footer > p
+{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: center;
+    
+    color: #000000;
+}
+
+.footer > p > span
+{
+    font-weight: bolder;
+}
